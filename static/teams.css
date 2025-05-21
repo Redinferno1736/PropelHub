@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Orbitron:wght@400..900&family=Montserrat:wght@400;700&family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1d3557;
+}
+
+.header {
+    display: flex;
+    z-index: 1;
+}
+
+.logo {
+    display: flex;
+    width: 100vw;
+    height: 20vh;
+    background-color: #0077b6;
+    border-bottom-left-radius: 85px;
+    border-bottom-right-radius: 85px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.logo>.logo {
+    width: 30vw;
+    height: 20vh;
+}
+
+.name {
+    font-size: 75px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    color: white;
+}
+
+.db {
+    width: 100vw;
+    height: 27vh;
+    background-color: #023e8a;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.box {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    padding: 10px;
+}
+
+
+.footer {
+    width: 100vw;
+    height: 5vh;
+    background-color: #023e8a;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+}
+
+.box {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    padding: 10px 18px;
+    transition: background 0.18s;
+    font-weight: 500;
+}
+
+.selected{
+  border-bottom: 3px solid #ffe066;
+}
+
+.box:hover,
+.box.active {
+    background: #2D545E;
+    color: #ffe066;
+}
+
+.teams-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    margin: 60px auto 60px auto;
+    max-width: 1200px;
+}
+
+.team-card {
+    background: rgba(255,255,255,0.08);
+    color: #f1f1f1;
+    border-radius: 18px;
+    padding: 32px 28px;
+    width: 270px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    transition: transform 0.18s;
+}
+
+.team-card h2 {
+    color: #ffe066;
+    font-family: "Orbitron", sans-serif;
+    margin-bottom: 8px;
+    font-size: 2em;
+}
+
+.team-card h4 {
+    color: #61a2ed;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 16px;
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.team-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.55);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  color: #22334a;
+  border-radius: 16px;
+  padding: 32px 24px;
+  min-width: 280px;
+  max-width: 90vw;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px; right: 24px;
+  font-size: 2em;
+  color: #0077b6;
+  cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+    .teams-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+    .team-card {
+        width: 90vw;
+        max-width: 400px;
+    }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropelHub-Teams</title>
+    <link rel="stylesheet" href="/static/teams.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo raise-up">
+            <img src="/static/assets/log.png" alt="" class="logo">
+            <div class="name">PropelHub</div>
+        </div>
+        <nav class="db">
+            <a href="home.html" class="box">HOME</a>
+            <a href="about.html" class="box">ABOUT US</a>
+            <a href="teams.html" class="box selected">TEAMS</a>
+            <a href="projects.html" class="box">PROJECTS</a>
+            <a href="gallery.html" class="box">GALLERY</a>
+            <a href="contact.html" class="box">CONTACT US</a>
+        </nav>
+    </div>
+    <div style="height: 4vh;"></div>
+    <div class="teams-container">
+        <div class="team-card" data-team="Team Vortex" data-leader="Team Vortex Leader"
+            data-members="Member 1, Member 2, Member 3, Member 4">
+            <h2>Team Vortex</h2>
+            <h4>Aeromodelling & Design</h4>
+            <p>Where ideas take flight—design, build, and perfect model aircraft. Team Vortex specializes in creative
+                aeromodelling, from concept sketches to flight-ready prototypes.<br>
+                <b>Join us to master the art of aerodynamics and turn your imagination into airborne reality!</b>
+            </p>
+        </div>
+        <div class="team-card" data-team="Team Blue Impulse" data-leader="Team Blue Impulse Leader"
+            data-members="Member 1, Member 2, Member 3, Member 4">
+            <h2>Team Blue Impulse</h2>
+            <h4>Drone Building</h4>
+            <p>Pushing the boundaries of unmanned flight and aerial innovation. Blue Impulse is dedicated to building,
+                programming, and flying cutting-edge drones for competition and research.<br>
+                <b>Our drones have soared to victory in national and intercollegiate competitions.</b>
+            </p>
+        </div>
+        <div class="team-card" data-team="Team Skyhawks" data-leader="Team Skyhawks Leader"
+            data-members="Member 1, Member 2, Member 3, Member 4">
+            <h2>Team Skyhawks</h2>
+            <h4>RC Plane Construction</h4>
+            <p>Engineering high-performance remote-controlled planes for the skies. Skyhawks focuses on RC plane design,
+                assembly, and competitive flying.<br>
+                <b>Experience the thrill of piloting your own RC creation and competing with the best!</b>
+            </p>
+        </div>
+        <div class="team-card" data-team="Team WebWeavers" data-leader="Team WebWeavers Leader"
+            data-members="Member 1, Member 2, Member 3, Member 4">
+            <h2>Team WebWeavers</h2>
+            <h4>Web Development</h4>
+            <p>Crafting the digital face of PropelHub—websites, tech, and online presence. WebWeavers manages all things
+                web, from design to deployment.<br>
+                <b>We welcome coders, designers, and creative thinkers to shape our online journey.</b>
+            </p>
+        </div>
+    </div>
+    <div id="teamModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTeamName"></h2>
+            <p><b>Leader:</b> <span id="modalLeader"></span></p>
+            <p><b>Members:</b></p>
+            <ul id="modalMembers"></ul>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright © 2025 PropelHub
+    </div>
+    <script>
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.addEventListener('click', function () {
+                document.getElementById('modalTeamName').textContent = this.dataset.team;
+                document.getElementById('modalLeader').textContent = this.dataset.leader;
+                const members = this.dataset.members.split(',').map(m => m.trim());
+                const ul = document.getElementById('modalMembers');
+                ul.innerHTML = '';
+                members.forEach(m => {
+                    const li = document.createElement('li');
+                    li.textContent = m;
+                    ul.appendChild(li);
+                });
+                document.getElementById('teamModal').style.display = 'flex';
+            });
+        });
+
+        document.querySelector('.close-btn').onclick = function () {
+            document.getElementById('teamModal').style.display = 'none';
+        };
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('teamModal')) {
+                document.getElementById('teamModal').style.display = 'none';
+            }
+        };
+    </script>
+
+</body>
+
+</html>

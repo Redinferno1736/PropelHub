@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropelHub-Projects</title>
+    <link rel="stylesheet" href="/static/projects.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo raise-up">
+            <img src="/static/assets/log.png" alt="" class="logo">
+            <div class="name">PropelHub</div>
+        </div>
+        <nav class="db">
+            <a href="home.html" class="box">HOME</a>
+            <a href="about.html" class="box">ABOUT US</a>
+            <a href="teams.html" class="box">TEAMS</a>
+            <a href="projects.html" class="box selected">PROJECTS</a>
+            <a href="gallery.html" class="box">GALLERY</a>
+            <a href="contact.html" class="box ">CONTACT US</a>
+        </nav>
+    </div>
+    <div style="height: 6vh;"></div>
+    <h2>Events</h2>
+    <div class="carousel-container">
+        <button class="carousel-arrow left-arrow">&#8592;</button>
+        <div class="carousel">
+            <img src="/events/1.png" class="carousel-img" alt="Event 1">
+            <img src="/events/2.png" class="carousel-img" alt="Event 2">
+            <img src="/events/3.png" class="carousel-img" alt="Event 3">
+            <img src="/events/4.png" class="carousel-img" alt="Event 4">
+        </div>
+        <button class="carousel-arrow right-arrow">&#8594;</button>
+    </div>
+
+    <div class="footer">
+        Copyright © 2025 PropelHub
+    </div>
+    <script>
+        const images = document.querySelectorAll('.carousel-img');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        let activeIndex = 0;
+
+        function updateCarousel() {
+            images.forEach((img, i) => {
+                img.classList.remove('active');
+                img.style.display = (i === activeIndex || i === activeIndex - 1 || i === activeIndex + 1) ? 'block' : 'none';
+            });
+            images[activeIndex].classList.add('active');
+            if (activeIndex > 0) images[activeIndex - 1].style.opacity = 0.6;
+            if (activeIndex < images.length - 1) images[activeIndex + 1].style.opacity = 0.6;
+        }
+
+        function showPrev() {
+            if (activeIndex > 0) {
+                activeIndex--;
+                updateCarousel();
+            }
+        }
+
+        function showNext() {
+            if (activeIndex < images.length - 1) {
+                activeIndex++;
+                updateCarousel();
+            }
+        }
+
+        leftArrow.addEventListener('click', showPrev);
+        rightArrow.addEventListener('click', showNext);
+
+        images.forEach((img, i) => {
+            img.addEventListener('click', () => {
+                activeIndex = i;
+                updateCarousel();
+            });
+        });
+
+        updateCarousel();
+    </script>
+
+</body>
+
+</html>
